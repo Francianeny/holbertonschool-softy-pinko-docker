@@ -1,18 +1,26 @@
-# Utilisez l'image de base Ubuntu
+# Utiliser la dernière version d'Ubuntu
 FROM ubuntu:latest
 
-# Met à jour les paquets APT et installe Python et pip
+# Mettre à jour et mettre à niveau le système
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y python3 python3-pip
 
-# Installe Flask via pip
-RUN pip3 install flask
+# Installer Python3 et pip3
+RUN apt-get install -y python3 python3-pip python3-venv
 
-# Définit le répertoire de travail
-WORKDIR /app
+# Créer un environnement virtuel pour Python
+RUN python3 -m venv /venv
 
-# Copie le fichier de l'application Flask dans le conteneur
+# Activer l'environnement virtuel et installer Flask
+RUN /venv/bin/pip install flask
+
+# Copier le script Python dans le conteneur
 COPY api.py /app/api.py
 
-# Exécute l'application Flask
-CMD ["python3", "/app/api.py"]
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Exposer le port sur lequel Flask écoute
+EXPOSE 5252
+
+# Exécuter l'application Flask
+CMD ["/venv/bin/python", "/app/api.py"]
