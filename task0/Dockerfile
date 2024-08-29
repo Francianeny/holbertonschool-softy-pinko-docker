@@ -1,11 +1,11 @@
-# Use the latest version of the Ubuntu image
+# Utiliser l'image Ubuntu la plus récente comme base
 FROM ubuntu:latest
 
-# Update the package repositories
+# Mettre à jour la liste des paquets
 RUN apt-get update
 
-# Upgrade the existing packages
+# Mettre à jour les logiciels installés
 RUN apt-get upgrade -y
 
-# Command to execute when the container starts
+# Définir la commande par défaut pour le conteneur
 CMD echo "Hello, World!"
