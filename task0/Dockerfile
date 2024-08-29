@@ -7,5 +7,8 @@ RUN apt-get update
 # Mettre à jour les logiciels installés
 RUN apt-get upgrade -y
 
-# Définir la commande par défaut pour le conteneur
-CMD echo "Hello, World!"
+# Installer l'utilitaire 'curl' pour vérifier que le conteneur fonctionne
+RUN apt-get install -y curl
+
+# Démarrer une commande 'sleep' infinie pour garder le conteneur actif
+CMD ["sleep", "infinity"]
