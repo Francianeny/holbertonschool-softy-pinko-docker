@@ -1,14 +1,18 @@
-# Utiliser l'image Ubuntu la plus récente comme base
+# Utilisez l'image de base Ubuntu
 FROM ubuntu:latest
 
-# Mettre à jour la liste des paquets
-RUN apt-get update
+# Met à jour les paquets APT et installe Python et pip
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y python3 python3-pip
 
-# Mettre à jour les logiciels installés
-RUN apt-get upgrade -y
+# Installe Flask via pip
+RUN pip3 install flask
 
-# Installer l'utilitaire 'curl' pour vérifier que le conteneur fonctionne
-RUN apt-get install -y curl
+# Définit le répertoire de travail
+WORKDIR /app
 
-# Démarrer une commande 'sleep' infinie pour garder le conteneur actif
-CMD ["sleep", "infinity"]
+# Copie le fichier de l'application Flask dans le conteneur
+COPY api.py /app/api.py
+
+# Exécute l'application Flask
+CMD ["python3", "/app/api.py"]
