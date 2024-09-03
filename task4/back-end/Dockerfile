@@ -1,22 +1,20 @@
-# Utilise l'image de base Ubuntu
-FROM ubuntu:latest
+# Use the official Python image from the Docker Hub
+FROM python:3.8-slim
 
-# Met à jour les paquets et installe Python et pip
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y python3 python3-pip
-
-# Installe les dépendances Python
-RUN pip3 install flask flask-cors
-
-# Définit le répertoire de travail
+# Set the working directory
 WORKDIR /app
 
-# Copie le code source de l'API dans le conteneur
-COPY ./api.py /app/api.py
+# Install Flask and Flask-CORS
+RUN pip install flask flask-cors
 
-# Expose le port 5252 pour accéder au back-end
+# Copy the backend application files
+COPY ./path/to/your/api.py /app/api.py
+
+# Set the environment variable for Flask
+ENV FLASK_APP=api.py
+
+# Expose port 5252
 EXPOSE 5252
 
-# Commande pour exécuter l'application Flask
-CMD ["python3", "api.py"]
+# Run the Flask application
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5252"]
