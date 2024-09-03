@@ -3,37 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 5 - Front-End</title>
+    <title>Softy Pinko Task 5</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #dynamic-content {
-            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
             color: #333;
         }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+            background: #fff;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to Task 5</h1>
-    <div id="dynamic-content">Loading...</div>
-
-    <script>
-        $(function() {
-            $.ajax({
-                type: "GET",
-                url: "/api/hello",  // Route to your API through the proxy
-                success: function(data) {
-                    $('#dynamic-content').text(data);  // Update with the API response
-                },
-                error: function() {
-                    $('#dynamic-content').text('Error loading data');
-                }
-            });
-        });
-    </script>
+    <header>
+        <h1>Softy Pinko Task 5</h1>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h2>Welcome to Task 5</h2>
+            <p>This page includes enhanced styling and features for Task 5.</p>
+            <p>Visit the API endpoint <a href="/api/hello">here</a>.</p>
+        </div>
+    </div>
 </body>
 </html>
