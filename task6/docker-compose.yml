@@ -1,5 +1,3 @@
-version: '3.8' # Si cette ligne est présente, tu peux la retirer puisque la version est maintenant obsolète
-
 services:
   proxy:
     image: nginx:latest
