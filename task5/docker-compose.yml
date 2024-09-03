@@ -2,15 +2,15 @@ services:
   front-end:
     image: softy-pinko-front-end:task5
     build:
-      context: ./path/to/front-end
+      context: ./task5/front-end
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "80:80"
 
   back-end:
     image: softy-pinko-back-end:task5
     build:
-      context: ./path/to/back-end
+      context: ./task5/back-end
       dockerfile: Dockerfile
     ports:
       - "5252:5252"
@@ -18,7 +18,7 @@ services:
   proxy:
     image: softy-pinko-proxy:task5
     build:
-      context: ./path/to/proxy
+      context: ./task5/proxy
       dockerfile: Dockerfile
     ports:
       - "80:80"
