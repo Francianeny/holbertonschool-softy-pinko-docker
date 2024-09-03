@@ -1,10 +1,10 @@
 # Use the official Nginx image from the Docker Hub
 FROM nginx:latest
 
-# Copy the front-end files into the image
-COPY ./path/to/your/front-end/files /usr/share/nginx/html
+# Copy the frontend application files
+COPY ./path/to/your/index.html /usr/share/nginx/html/index.html
 
-# Copy the custom Nginx configuration file
+# Copy the Nginx configuration file
 COPY ./path/to/your/nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
