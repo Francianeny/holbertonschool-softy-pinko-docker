@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 0 - Front-End</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #dynamic-content {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery for AJAX -->
+</head>
+<body>
+    <h1>Welcome to Task 0</h1>
+    <div id="dynamic-content">Loading...</div> <!-- Container for dynamic data -->
+
+    <script>
+        $(function() {
+            // Make an AJAX request to the proxy server to get dynamic data from the API
+            $.ajax({
+                type: "GET",
+                url: "/api/hello",  // Route for the back-end API through the proxy
+                success: function(data) {
+                    $('#dynamic-content').text(data);  // Update the content with the received data
+                },
+                error: function() {
+                    $('#dynamic-content').text('Error loading data');  // Handle errors
+                }
+            });
+        });
+    </script>
+</body>
+</html>
