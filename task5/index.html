@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5 - Front-End</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #dynamic-content {
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to Task 5</h1>
+    <div id="dynamic-content">Loading...</div>
+
+    <script>
+        $(function() {
+            $.ajax({
+                type: "GET",
+                url: "/api/hello",  // Route to your API through the proxy
+                success: function(data) {
+                    $('#dynamic-content').text(data);  // Update with the API response
+                },
+                error: function() {
+                    $('#dynamic-content').text('Error loading data');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
