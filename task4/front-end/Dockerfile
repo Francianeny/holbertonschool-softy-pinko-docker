@@ -1,11 +1,6 @@
-# Utiliser l'image Nginx la plus récente
+# Utilise l'image de base Nginx
 FROM nginx:latest
 
-# Copier la configuration personnalisée de Nginx
+# Copie les fichiers du front-end dans le répertoire par défaut de Nginx
+COPY ./softy-pinko-front-end /var/www/html/softy-pinko-front-end
 COPY ./softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
-
-# Copier les fichiers front-end dans le répertoire par défaut de Nginx
-COPY ./softy-pinko-front-end /usr/share/nginx/html
-
-# Exposer le port 9000 pour que Nginx écoute sur ce port
-EXPOSE 9000
