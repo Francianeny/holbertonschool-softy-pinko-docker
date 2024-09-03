@@ -1,17 +1,11 @@
 version: '3'
 services:
   front-end:
-    build:
-      context: ./front-end
-      dockerfile: Dockerfile
     image: softy-pinko-front-end:task4
     ports:
       - "80:80"
 
   back-end:
-    build:
-      context: ./back-end
-      dockerfile: Dockerfile
     image: softy-pinko-back-end:task4
     ports:
       - "5252:5252"
