@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 4 - Front-End</title>
+    <title>Softy Pinko Task 4</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            padding: 20px;
         }
-        #dynamic-content {
-            font-size: 20px;
+        h1 {
             color: #333;
         }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Welcome to Task 4</h1>
-    <div id="dynamic-content">Loading...</div>
-
-    <script>
-        $(function() {
-            $.ajax({
-                type: "GET",
-                url: "/api/hello",  // Route to your API through the proxy
-                success: function(data) {
-                    $('#dynamic-content').text(data);  // Update with the API response
-                },
-                error: function() {
-                    $('#dynamic-content').text('Error loading data');
-                }
-            });
-        });
-    </script>
+    <h1>Welcome to Softy Pinko Task 4</h1>
+    <p>This is a simple front-end page for Task 4.</p>
+    <p>Check the back-end API <a href="/api/hello">here</a>.</p>
 </body>
 </html>
