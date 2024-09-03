@@ -1,0 +1,29 @@
+version: '3.8' # Si cette ligne est présente, tu peux la retirer puisque la version est maintenant obsolète
+
+services:
+  proxy:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - back-end
+
+  front-end:
+    build: ./front-end
+    ports:
+      - "5000:5000"
+    depends_on:
+      - back-end
+
+  back-end:
+    build: ./back-end
+    expose:
+      - "5252"
+    environment:
+      - FLASK_ENV=production
+    deploy:
+      replicas: 2  # Ajoute cette ligne pour spécifier 2 instances du back-end
+    ports:
+      - "5252"
