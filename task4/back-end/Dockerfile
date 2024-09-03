@@ -8,7 +8,7 @@ WORKDIR /app
 RUN pip install flask flask-cors
 
 # Copy the backend application files
-COPY ./path/to/your/api.py /app/api.py
+COPY ./api.py /app/api.py
 
 # Set the environment variable for Flask
 ENV FLASK_APP=api.py
