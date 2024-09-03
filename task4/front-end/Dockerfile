@@ -1,6 +1,11 @@
-# Utilise l'image de base Nginx
+# Use the official Nginx image from the Docker Hub
 FROM nginx:latest
 
-# Copie les fichiers du front-end dans le répertoire par défaut de Nginx
-COPY ./softy-pinko-front-end /var/www/html/softy-pinko-front-end
-COPY ./softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
+# Copy the front-end files into the image
+COPY ./path/to/your/front-end/files /usr/share/nginx/html
+
+# Copy the custom Nginx configuration file
+COPY ./path/to/your/nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 80
+EXPOSE 80
