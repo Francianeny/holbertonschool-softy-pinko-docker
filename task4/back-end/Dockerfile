@@ -1,17 +1,17 @@
-# Utiliser l'image de base Python
+# Dockerfile for task4 back-end
 FROM python:3.8-slim
 
-# Installer Flask et Flask-Cors
+# Install Flask and Flask-Cors
 RUN pip install flask flask-cors
 
-# Définir le répertoire de travail
+# Set working directory
 WORKDIR /app
 
-# Copier le fichier api.py dans le conteneur
-COPY api.py /app/api.py
+# Copy the API script
+COPY ./api.py /app/api.py
 
-# Exposer le port 5252
+# Expose port
 EXPOSE 5252
 
-# Lancer l'application Flask
-CMD ["python", "api.py"]
+# Command to run the Flask app
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5252"]
