@@ -1,19 +1,19 @@
 version: '3'
 services:
   front-end:
-    image: softy-pinko-front-end:task4
+    image: task4-front-end:latest
     ports:
       - "80:80"  # Mappe le port 80 du conteneur au port 80 de l'hôte
 
   back-end:
-    image: softy-pinko-back-end:task4
+    image: task4-back-end:latest
     ports:
       - "5252:5252"  # Mappe le port 5252 du conteneur au port 5252 de l'hôte
 
   proxy:
-    image: softy-pinko-proxy:task4
+    image: softy-pinko-proxy:task4  # Assurez-vous que cette image est construite
     ports:
-      - "80:80"  # Mappe le port 80 du proxy au port 80 de l'hôte
+      - "80:80"  # Mappe le port 80 du conteneur au port 80 de l'hôte
     depends_on:
       - front-end
       - back-end
