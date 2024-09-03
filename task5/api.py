@@ -7,7 +7,10 @@ CORS(app)
 @app.route('/api/data', methods=['GET'])
 def get_data():
     # Exemple de données à retourner
-    data = {"message": "Hello from Task 5 API!"}
+    data = {
+        "message": "Hello from Task 5 API!",
+        "task": 5
+        }
     return jsonify(data)
 
 if __name__ == '__main__':
