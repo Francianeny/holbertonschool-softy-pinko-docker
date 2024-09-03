@@ -1,6 +1,8 @@
-# Utiliser l'image de base Nginx
+# Dockerfile for task4 front-end
 FROM nginx:latest
 
-# Copier les fichiers de configuration et les fichiers front-end
+# Copy the HTML files into the container
 COPY ./softy-pinko-front-end /usr/share/nginx/html
+
+# Copy the nginx configuration
 COPY ./softy-pinko-front-end.conf /etc/nginx/conf.d/default.conf
